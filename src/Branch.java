@@ -17,11 +17,11 @@ public class Branch {
         return customers;
     }
 
-    public boolean newCustomer(String name, double initialTransaction){
+    public boolean newCustomer(String name, double initialTransactionAmount){
         //return true if customer added successfully otherwise return false
 
         if (findCustomer(name) == null){
-            customers.add(new Customer(name, initialTransaction));
+            customers.add(new Customer(name, initialTransactionAmount));
             return true;
         }
 
@@ -29,8 +29,10 @@ public class Branch {
     }
 
 
+
     public boolean addCustomerTransaction(String name, double transaction){
         //return true if customer transaction added successfully otherwise return true
+
         Customer existingCustomer = findCustomer(name);
         if (existingCustomer != null){
             existingCustomer.addTransaction(transaction);
@@ -42,6 +44,7 @@ public class Branch {
 
     private Customer findCustomer(String customerName){
         //if customer exists return customer otherwise return null
+
         for (var customer : customers) {
          if(customer.getName().equalsIgnoreCase(customerName)){
              return customer;

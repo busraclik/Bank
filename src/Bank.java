@@ -25,12 +25,11 @@ public class Bank {
         if (existingBranch != null){
             return existingBranch.newCustomer(customerName, initialTransaction);
         }
-
         return false;
-
-//        findBranch(branchName).getCustomers().add(new Customer(customerName, initialTransaction));
-//        return true;
     }
+
+
+
 
     public boolean  addCustomerTransaction(String branchName, String customerName, double transaction){
     //return true if customer transaction added successfully
@@ -43,6 +42,9 @@ public class Bank {
 
     }
 
+
+
+
     public Branch findBranch(String branchName){
         //return branc if exists otherwise return null
         for (var branch : branches) {
@@ -53,6 +55,8 @@ public class Bank {
         return null;
     }
 
+
+
     public void listCustomers(String branchName, boolean isTransacrionsLists){
         //return true if branch exists otherwise print list of cusotmers
 
@@ -62,6 +66,7 @@ public class Bank {
          for (Customer c : list){
              System.out.println("Customer Name : " + c.getName());
              ArrayList<Double> transactionList = c.getTransacrions();
+
              if(isTransacrionsLists) {
                  for (double d : transactionList) {
                      System.out.println("transaction : " + d);
